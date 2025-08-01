@@ -1,3 +1,10 @@
+# Módulo 5 - Sesión N°4  
+**Grupo 7 – Integrantes:**  
+- María Elena Salgado  
+- Diego Durán  
+- Sebastián Calvete  
+- Maykol Ramírez
+
 1. Crea un archivo transferencias.feature con un escenario outline que valide tres tipos de transferencias:
 exitosa, monto negativo y cuenta inválida.
 2. Usa este formato base:
