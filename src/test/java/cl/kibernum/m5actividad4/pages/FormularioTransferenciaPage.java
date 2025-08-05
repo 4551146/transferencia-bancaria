@@ -1,5 +1,7 @@
 package cl.kibernum.m5actividad4.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,26 +10,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FormularioTransferenciaPage {
 
-    private WebDriver driver;
+  private WebDriver driver;
   private WebDriverWait wait;
 
-  // Localizadores 
-  // id: monto
-  private By montoInput = By.id("monto");
-  // id: medio
-  private By medioSelect = By.id("medio");
-  // id: resultado
-  private By resultadoText = By.id("resultado");
+  // Localizadores
 
+  //Transferencia
+  private By montoInput = By.id("monto");
+
+  private By destinoInput = By.id("cuenta");
+ 
+  private By btnTransferir = By.xpath("//button[contains(text(), 'Enviar transferencia')]");
+
+  private By resultadoTransferenciaText = By.id("resultado-transferencia");
+
+  //Datos
+  private By nombreInput = By.id("text");
+
+  private By apellidoInput = By.xpath("//*[@input='text']");
+
+  private By emailInput = By.xpath("//*[@input='email']");
+
+  private By edadInput = By.xpath("//*[@input='number']");
+
+  private By btnDatos = By.id("btn-imprimir-datos");
+
+  private By resultadoDatosText = By.id("resultado-transferencia");
 
   public FormularioTransferenciaPage(WebDriver driver) {
     this.driver = driver;
-    //this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
   }
 
   public void navigateTo() {
-    driver.get("https://testing-qa.netlify.app/pages/banco.html");
-  }
+    driver.get("https://web-actividad-4.netlify.app/");
+   }
 
   // Ingresar el monto
   public void ingresarMonto(double monto) {
@@ -35,14 +52,46 @@ public class FormularioTransferenciaPage {
     montoElement.clear();
     montoElement.sendKeys(String.valueOf(monto));
   }
-  // Selecionar el medio de pago
-  public void seleccionarMedioPago(String medio) {
-    if(medio != null && !medio.isEmpty()) {
-      WebElement medioElement = wait.until(ExpectedConditions.elementToBeClickable(medioSelect));
-      medioElement.sendKeys(medio);
-    }
+  // Selecionar destino para transferir
+  public void seleccionarDestino(String destino) {
+    WebElement destinoElement = wait.until(ExpectedConditions.elementToBeClickable(destinoInput));
+    destinoElement.sendKeys(destino);
+    
   }
-   // Obtener el resultado
+   // Obtener mensaje de transferencia
+  public String obtenerMensajeTransferencia(){
+    WebElement mensajeTransferenciaElement = wait.until(ExpectedConditions.visibilityOfElementLocated(resultadoTransferenciaText));
+    return mensajeTransferenciaElement.getText().replaceAll("<.*?>", "").trim();
+  }
+
+  public void ingresarNombre(String nombre){
+    WebElement nombreElement = wait.until(ExpectedConditions.elementToBeClickable(nombreInput));
+    nombreElement.clear();
+    nombreElement.sendKeys(String.valueOf(nombre));
+  }
+
+  public void ingresarApellido(String apellido){
+    WebElement apellidoElement = wait.until(ExpectedConditions.elementToBeClickable(apellidoInput));
+    apellidoElement.clear();
+    apellidoElement.sendKeys(String.valueOf(apellido));
+  }
+
+  public void ingresarEmail(String email){
+    WebElement emailElement = wait.until(ExpectedConditions.elementToBeClickable(emailInput));
+    emailElement.clear();
+    emailElement.sendKeys(String.valueOf(email));
+  }
+
+  public void ingresarEdad(String edad){
+    WebElement edadElement = wait.until(ExpectedConditions.elementToBeClickable(edadInput));
+    edadElement.clear();
+    edadElement.sendKeys(String.valueOf(edad));
+  }
+
+  public String obtenerMensajeDatos(){
+    WebElement mensajeDatosElement = wait.until(ExpectedConditions.visibilityOfElementLocated(resultadoDatosText));
+    return mensajeDatosElement.getText().replaceAll("<.*?>", "").trim();
+  }
 
     
 }
