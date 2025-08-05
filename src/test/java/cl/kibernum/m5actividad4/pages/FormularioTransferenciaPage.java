@@ -45,25 +45,38 @@ public class FormularioTransferenciaPage {
   public void navigateTo() {
     driver.get("https://web-actividad-4.netlify.app/");
    }
-
-  // Ingresar el monto
+   // Métodos para la transferencia
+ 
   public void ingresarMonto(double monto) {
     WebElement montoElement = wait.until(ExpectedConditions.elementToBeClickable(montoInput));
     montoElement.clear();
     montoElement.sendKeys(String.valueOf(monto));
   }
-  // Selecionar destino para transferir
-  public void seleccionarDestino(String destino) {
+ 
+  public void ingresarDestino(String destino) {
     WebElement destinoElement = wait.until(ExpectedConditions.elementToBeClickable(destinoInput));
+    destinoElement.clear();
     destinoElement.sendKeys(destino);
-    
   }
-   // Obtener mensaje de transferencia
+  
+  public void clickBotonTransferir(){
+    WebElement btnTransferirElement = wait.until(ExpectedConditions.elementToBeClickable(btnTransferir));
+    btnTransferirElement.click();
+  }
+  
   public String obtenerMensajeTransferencia(){
     WebElement mensajeTransferenciaElement = wait.until(ExpectedConditions.visibilityOfElementLocated(resultadoTransferenciaText));
     return mensajeTransferenciaElement.getText().replaceAll("<.*?>", "").trim();
   }
+  
+  public void transferir(double monto, String destino){
+    ingresarMonto(monto);
+    ingresarDestino(destino);
+    clickBotonTransferir();
+    
+  }
 
+  
   public void ingresarNombre(String nombre){
     WebElement nombreElement = wait.until(ExpectedConditions.elementToBeClickable(nombreInput));
     nombreElement.clear();
@@ -88,10 +101,9 @@ public class FormularioTransferenciaPage {
     edadElement.sendKeys(String.valueOf(edad));
   }
 
-  public String obtenerMensajeDatos(){
-    WebElement mensajeDatosElement = wait.until(ExpectedConditions.visibilityOfElementLocated(resultadoDatosText));
-    return mensajeDatosElement.getText().replaceAll("<.*?>", "").trim();
-  }
+ 
+
+  
 
     
 }
