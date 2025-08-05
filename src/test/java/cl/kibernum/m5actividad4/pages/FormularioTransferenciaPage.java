@@ -24,19 +24,6 @@ public class FormularioTransferenciaPage {
 
   private By resultadoTransferenciaText = By.id("resultado-transferencia");
 
-  //Datos
-  private By nombreInput = By.id("text");
-
-  private By apellidoInput = By.xpath("//*[@input='text']");
-
-  private By emailInput = By.xpath("//*[@input='email']");
-
-  private By edadInput = By.xpath("//*[@input='number']");
-
-  private By btnDatos = By.id("btn-imprimir-datos");
-
-  private By resultadoDatosText = By.id("resultado-transferencia");
-
   public FormularioTransferenciaPage(WebDriver driver) {
     this.driver = driver;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -73,7 +60,6 @@ public class FormularioTransferenciaPage {
     ingresarMonto(monto);
     ingresarDestino(destino);
     clickBotonTransferir();
-    
   }
 
   
