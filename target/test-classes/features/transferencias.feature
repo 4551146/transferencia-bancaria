@@ -1,5 +1,5 @@
 Feature: Transferencia bancaria
-
+    @Transferencia
     Scenario Outline: Validar transferencias bancarias
         Given que el usuario ha iniciado sesión
         When transfiere <monto> a la cuenta "<cuenta>"

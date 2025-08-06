@@ -62,31 +62,6 @@ public class FormularioTransferenciaPage {
     clickBotonTransferir();
   }
 
-  
-  public void ingresarNombre(String nombre){
-    WebElement nombreElement = wait.until(ExpectedConditions.elementToBeClickable(nombreInput));
-    nombreElement.clear();
-    nombreElement.sendKeys(String.valueOf(nombre));
-  }
-
-  public void ingresarApellido(String apellido){
-    WebElement apellidoElement = wait.until(ExpectedConditions.elementToBeClickable(apellidoInput));
-    apellidoElement.clear();
-    apellidoElement.sendKeys(String.valueOf(apellido));
-  }
-
-  public void ingresarEmail(String email){
-    WebElement emailElement = wait.until(ExpectedConditions.elementToBeClickable(emailInput));
-    emailElement.clear();
-    emailElement.sendKeys(String.valueOf(email));
-  }
-
-  public void ingresarEdad(String edad){
-    WebElement edadElement = wait.until(ExpectedConditions.elementToBeClickable(edadInput));
-    edadElement.clear();
-    edadElement.sendKeys(String.valueOf(edad));
-  }
-
  
 
   

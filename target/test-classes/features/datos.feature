@@ -1,4 +1,5 @@
 Feature: Formulario de datos
+  @datos
   Scenario: Completar datos del formulario
     Given que el usuario está en el formulario de completar datos
     When completa los siguientes datos:
@@ -7,4 +8,3 @@ Feature: Formulario de datos
       | apellido | Soto          |
       | email    | carla@qa.com  |
       | edad     | 35            |
-    Then debería imprimir cada valor en consola
