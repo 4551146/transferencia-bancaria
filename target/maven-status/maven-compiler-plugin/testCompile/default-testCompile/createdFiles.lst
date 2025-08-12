@@ -1,1 +1,5 @@
+cl\kibernum\m5actividad4\RunCucumberTest.class
+cl\kibernum\m5actividad4\pages\FormularioUsuarioPage.class
+cl\kibernum\m5actividad4\pages\FormularioTransferenciaPage.class
+cl\kibernum\m5actividad4\steps\DatosUsuarioSteps.class
 cl\kibernum\m5actividad4\steps\TransferenciaSteps.class

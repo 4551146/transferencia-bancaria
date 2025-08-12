@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.777 s <<< FAILURE! - in RunCucumberTest
+Completar datos del formulario  Time elapsed: 2.303 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "cl.kibernum.m5actividad4.pages.FormularioUsuarioPage.ingresoSitioWebDatos()" because "this.formularioUsuarioPage" is null
+

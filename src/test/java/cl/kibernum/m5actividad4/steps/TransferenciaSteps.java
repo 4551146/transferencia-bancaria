@@ -19,7 +19,7 @@ public class TransferenciaSteps {
     private WebDriver driver;
     private FormularioTransferenciaPage formularioTransferenciaPage;
 
-    @Before
+  @Before
     public void setUp() {
     WebDriverManager.chromedriver().clearDriverCache().setup();
     ChromeOptions options = new ChromeOptions();
@@ -31,6 +31,7 @@ public class TransferenciaSteps {
   public void tearDown() {
     if(driver != null) driver.quit();
   }
+
 
   @Given("que el usuario ha iniciado sesión")
   public void que_el_usuario_accede_al_formulario_de_pago() {

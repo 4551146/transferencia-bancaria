@@ -1,5 +1,7 @@
 package cl.kibernum.m5actividad4.steps;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.Duration;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import cl.kibernum.m5actividad4.pages.FormularioUsuarioPage;
+import dev.failsafe.internal.util.Assert;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -47,20 +50,27 @@ public class DatosUsuarioSteps {
         
         for (Map.Entry<String, String> entry : datos.entrySet()) {
             // Imprime en consola el campo y valor
-            System.out.println("Campo: " + entry.getKey() + "-  Valor: " + entry.getValue());
             
             switch (entry.getKey()) {
                 case "nombre":
-                    formularioUsuarioPage.ingresoNombre(entry.getValue());
+                    System.out.println("Desde Mapa: " + entry.getValue());
+                    System.out.println("Desde Pagina: " + formularioUsuarioPage.obtenerValorCampo("1"));
+                    assertEquals(entry.getValue(), formularioUsuarioPage.obtenerValorCampo("1"), "Valores no coindicen");
                     break;
                 case "apellido":
-                    formularioUsuarioPage.ingresoApellido(entry.getValue());
+                    System.out.println("Desde Mapa: " + entry.getValue());
+                    System.out.println("Desde Pagina: " + formularioUsuarioPage.obtenerValorCampo("1"));
+                    assertEquals(entry.getValue(), formularioUsuarioPage.obtenerValorCampo("2"), "Valores no coindicen");
                     break;
                 case "email":
-                    formularioUsuarioPage.ingresoEmail(entry.getValue()); 
+                    System.out.println("Desde Mapa: " + entry.getValue());
+                    System.out.println("Desde Pagina: " + formularioUsuarioPage.obtenerValorCampo("1"));
+                    assertEquals(entry.getValue(), formularioUsuarioPage.obtenerValorCampo("3"), "Valores no coindicen");
                     break;
                 case "edad":
-                    formularioUsuarioPage.ingresoEdad(entry.getValue());
+                    System.out.println("Desde Mapa: " + entry.getValue());
+                    System.out.println("Desde Pagina: " + formularioUsuarioPage.obtenerValorCampo("1"));
+                    assertEquals(entry.getValue(), formularioUsuarioPage.obtenerValorCampo("4") , "Valores no coindicen");
                     break;
             }
         }
